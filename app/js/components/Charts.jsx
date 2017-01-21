@@ -21,7 +21,10 @@ class Chart extends Component {
       }
     }
     return (
-      <ChartistGraph data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
+      <section>
+        <h2> I need my Charts Jack! </h2>
+        <ChartistGraph data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
+      </section>
     )
   }
 }

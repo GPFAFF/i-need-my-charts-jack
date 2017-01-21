@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Chart from './components/Charts';
+import Main from './container/Main';
 import '../scss/app.scss';
 
 ReactDOM.render(
-  <Chart />,
-   document.getElementById('app') // eslint-disable-line
+  <Main />,
+  document.getElementById('app') // eslint-disable-line
 );
