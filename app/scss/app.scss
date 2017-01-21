@@ -2,3 +2,24 @@
 body {
   background: #ccc;
 }
+.ct-chart-line {
+  width: 100%;
+  height: 100%;
+}
+.ct-chart, .ct-line, .ct-series.ct-series-a {
+  fill: none;
+  stroke-width: 4px;
+}
+span.ct-end {
+  width: 63px;
+    height: 20px;
+    padding: 20px;
+}
+.ct-line {
+  stroke: red;
+}
+.ct-point {
+  stroke: red;
+  stroke-width: 10px;
+  stroke-linecap: round;
+}
