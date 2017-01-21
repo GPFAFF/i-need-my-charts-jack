@@ -4,26 +4,33 @@ import ChartistGraph from 'react-chartist';
 
 class PieChart extends Component {
   render() {
-    var data = {
-      series: [5, 3, 4, 1]
-    };
-    var sum = function(a, b) { return a + b };
-
-    var pieChartOptions = {
-      /*new Chartist.Pie('.ct-chart', data, {
-        labelInterpolationFnc: function(value) {
-          return Math.round(value / data.series.reduce(sum) * 100) + '%';
+  
+      var data = {
+        labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
+        series: [
+          [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+        ]
+      };
+  
+      var options = {
+        high: 10,
+        low: -10,
+        axisX: {
+          labelInterpolationFnc: function(value, index) {
+            return index % 2 === 0 ? value : null;
+          }
         }
-      }); */
+      };
+  
+      var type = 'Pie'
+  
+      return (
+        <div>
+          <h2> Pie Going Heres </h2>
+        </div>
+      )
     }
 
-    return (
-      <section>
-        <h2> Here comes the pie </h2>
-        <ChartistGraph />
-      </section>
-    )
-  }
 }
 
 export default PieChart;
