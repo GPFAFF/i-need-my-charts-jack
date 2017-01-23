@@ -1,5 +1,52 @@
+[
 {
-  "labels": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11"
-    , "W12"],
-  "series": [ [0, 1, 2, 4, 8, 6, 2, 1, 4, 6, 2, 10] ]
-}
+  "key": 1,
+  "labels": "W1",
+  "series": 8  
+},
+{
+  "key": 2,
+  "labels" : "W2",
+  "series": 3
+},
+{
+  "key": 3,
+  "labels" : "W3",
+  "series": 4
+},
+{
+  "key": 4,
+  "labels" : "W4",
+  "series": 2
+},
+{
+  "key": 5,
+  "labels" : "W5",
+  "series" : 5
+},
+{
+  "key": 6,
+  "labels" : "W6",
+  "series" : 2
+},
+{
+  "key": 7,
+  "labels" : "W7",
+  "series" : 4
+},
+{
+  "key": 8,
+  "labels" : "W8",
+  "series" : 6
+},
+{
+  "key": 9,
+  "labels" : "W9",
+  "series" : 3
+},
+{
+  "key": 10,
+  "labels" : "W10",
+  "series" : 5
+},
+]
