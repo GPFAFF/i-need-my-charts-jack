@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
+import axios from 'axios';
 
 
 class Chart extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      chartData: []
+    }
+  }
+
+  componentDidMount() {
+    axios.get(`http://www.github.com/${this.props.chartData}.json`)
+      .then(res => {
+        const chartData = res.data.data.children.map(obj => obj.data);
+        this.setState({ chartData });
+      });
+  }
   render() {
     var biPolarBarChartData = {
       labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -28,6 +43,13 @@ class Chart extends Component {
     return (
       <section>
         <h2> I need my Charts Jack! </h2>
+        
+        <ul>
+          {this.state.chartData.map(chartData => 
+            <li key={chartData.id}>{chartData.title}</li>
+          )}
+        </ul>
+
         <ChartistGraph className={aspectRatio} type={type} data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
       </section>
     )
