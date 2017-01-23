@@ -25,9 +25,9 @@ class PieChart extends Component {
       var type = 'Pie'
   
       return (
-        <div>
+        <section>
           <h2> Pie Going Heres </h2>
-        </div>
+        </section>
       )
     }
 

@@ -9,7 +9,6 @@ class Main extends Component {
     return (
       <main>
         <Chart />
-        <PieChart />
         <BarGraph />
       </main>
     )

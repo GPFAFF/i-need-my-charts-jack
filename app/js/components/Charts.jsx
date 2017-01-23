@@ -4,7 +4,7 @@ import ChartistGraph from 'react-chartist';
 
 
 class Chart extends Component {
-  
+
   render() {
     var biPolarBarChartData = {
       labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -20,11 +20,15 @@ class Chart extends Component {
           return index % 1 === 0 ? value : null;
         }
       }
-    }
+    };
+
+    var type = 'Bar';
+    var aspectRatio = 'ct-octave';
+
     return (
       <section>
         <h2> I need my Charts Jack! </h2>
-        <ChartistGraph data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
+        <ChartistGraph className={aspectRatio} type={type} data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
       </section>
     )
   }
