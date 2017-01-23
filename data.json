@@ -1,52 +1,54 @@
-[
 {
-  "key": 1,
-  "labels": "W1",
-  "series": 8  
-},
-{
-  "key": 2,
-  "labels" : "W2",
-  "series": 3
-},
-{
-  "key": 3,
-  "labels" : "W3",
-  "series": 4
-},
-{
-  "key": 4,
-  "labels" : "W4",
-  "series": 2
-},
-{
-  "key": 5,
-  "labels" : "W5",
-  "series" : 5
-},
-{
-  "key": 6,
-  "labels" : "W6",
-  "series" : 2
-},
-{
-  "key": 7,
-  "labels" : "W7",
-  "series" : 4
-},
-{
-  "key": 8,
-  "labels" : "W8",
-  "series" : 6
-},
-{
-  "key": 9,
-  "labels" : "W9",
-  "series" : 3
-},
-{
-  "key": 10,
-  "labels" : "W10",
-  "series" : 5
-},
-]
+  "chartData": [
+    {
+      "key": 1,
+      "labels": "W1",
+      "series": 8  
+    },
+    {
+      "key": 2,
+      "labels" : "W2",
+      "series": 3
+    },
+    {
+      "key": 3,
+      "labels" : "W3",
+      "series": 4
+    },
+    {
+      "key": 4,
+      "labels" : "W4",
+      "series": 2
+    },
+    {
+      "key": 5,
+      "labels" : "W5",
+      "series" : 5
+    },
+    {
+      "key": 6,
+      "labels" : "W6",
+      "series" : 2
+    },
+    {
+      "key": 7,
+      "labels" : "W7",
+      "series" : 4
+    },
+    {
+      "key": 8,
+      "labels" : "W8",
+      "series" : 6
+    },
+    {
+      "key": 9,
+      "labels" : "W9",
+      "series" : 3
+    },
+    {
+      "key": 10,
+      "labels" : "W10",
+      "series" : 5
+    }
+  ]
+}
