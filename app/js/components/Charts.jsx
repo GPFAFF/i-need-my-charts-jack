@@ -57,7 +57,7 @@ class Chart extends Component {
           )}
         </ul>
 
-        <ChartistGraph className={aspectRatio} type={type} data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
+        <ChartistGraph className={aspectRatio} type={type} data={this.state.chartData} options={biPolarBarChartOptions} type={'Line'} />
       </section>
     )
   }
