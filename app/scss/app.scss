@@ -3,6 +3,7 @@ body {
   background: #ccc;
   height: 100%;
   width: 100%;
+  margin: 20px auto;
 }
 h2 {
   text-align: center;
@@ -38,6 +39,7 @@ line.ct-bar {
     padding-bottom: 140px;
   }
 }
+
 .ct-chart .ct-label,
 .ct-chart .ct-label.ct-horizontal {
     display: block;
@@ -486,7 +488,7 @@ line.ct-bar {
     display: block;
     position: absolute;
     top: 0;
-    left: 0
+    left: 0;
 }
 
 .ct-chart.ct-major-tenth {

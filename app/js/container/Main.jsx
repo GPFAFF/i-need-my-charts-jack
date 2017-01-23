@@ -8,7 +8,7 @@ class Main extends Component {
   render() {
     return (
       <main>
-        <Chart subreddit="reactjs" />
+        <Chart chartData="data" />
         <BarGraph />
       </main>
     )
