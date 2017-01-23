@@ -21,7 +21,7 @@ class Chart extends Component {
             labelData = [],
             seriesData = [];
         
-        chartData.forEach(function(element, key, array) {
+        chartData.forEach((element, key, array) => {
           let labels = element.labels,
               series = element.series;
           
