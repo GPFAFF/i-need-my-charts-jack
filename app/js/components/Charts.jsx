@@ -22,7 +22,7 @@ class Chart extends Component {
         this.setState({ chartData });
       });
   }
-  
+
   render() {
     var biPolarBarChartData = {
       labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -49,7 +49,7 @@ class Chart extends Component {
         
         <ul>
           {this.state.chartData.map(chartData => 
-            <p>{chartData.Letter} - <span>{chartData.Freq}</span></p>
+            <p key={chartData.key}>{chartData.Letter} - <span>{chartData.Freq}</span></p>
           )}
         </ul>
 
