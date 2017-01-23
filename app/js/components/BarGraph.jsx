@@ -7,22 +7,29 @@ class BarGraph extends Component {
   render() {
 
     var data = {
-      labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10', 'W11', 'W12'],
+      labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10', 'W11', 'W12', 'W13'],
       series: [
-        [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+        [1, 2, 4, 8, 6, 2, 1, 4, 6, 2, 14, 5]
       ]
     };
 
     var options = {
-      high: 10,
-      low: -10,
-      showGrid: true,
+      high: 26,
+      low: 1,
+      fullWidth: true,
       chartPadding: {
-        top: 15,
-        right: 15,
-        bottom: 5,
-        left: 10
+        right: 40
       },
+      axisY: {
+        labelInterpolationFnc: function(value, index) {
+          return index;
+        }
+      },
+      axisX: {
+        labelInterpolationFnc: function(value, index) {
+          return index % 1 === 0 ? value : null;
+        }
+      }
     };
 
     var type = 'Bar';

@@ -27,12 +27,16 @@ class Chart extends Component {
     var biPolarBarChartData = {
       labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10', 'W11', 'W12'],
       series: [
-        [0, 1, 2, 4, 8, 6, -2, -1, -4, -6, -2, 10]
+        [0, 1, 2, 4, 8, 6, 2, 1, 4, 6, 2, 10]
       ]
     };
     var biPolarBarChartOptions = {
-      high: 10,
-      low: -10,
+      high: 26,
+      low: 0,
+      fullWidth: true,
+      chartPadding: {
+        right: 40
+      },
       axisX: {
         labelInterpolationFnc: function(value, index) {
           return index % 1 === 0 ? value : null;
