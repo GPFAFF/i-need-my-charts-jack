@@ -9,28 +9,44 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      chartData: []
+      labelData: [],
+      seriesData: []
     }
   }
 
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
       .then(res => {
-        console.log('res', res)
-        const chartData = res.data.map(obj => obj);
-        console.log('chartData', chartData);
-        this.setState({ chartData });
+        let chartData = res.data.chartData,
+            labelData = [],
+            seriesData = [];
+        
+        chartData.forEach(function(element, key, array) {
+          let labels = element.labels,
+              series = element.series;
+          
+          labelData.push(labels);
+          seriesData.push(series);
+        });
+
+        this.setState({
+          labelData: labelData,
+          seriesData: seriesData
+        })
       });
   }
 
   render() {
-    var biPolarBarChartData = {
-      labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10', 'W11', 'W12'],
-      series: [
-        [0, 1, 2, 4, 8, 6, 2, 1, 4, 6, 2, 10]
-      ]
-    };
-    var biPolarBarChartOptions = {
+    let type = 'Bar',
+        aspectRatio = 'ct-octave',
+        biPolarBarChartData = {
+          labels: [this.state.labelData],
+          series: [this.state.seriesData]
+        };
+
+    console.log(biPolarBarChartData);
+
+    const biPolarBarChartOptions = {
       high: 26,
       low: 0,
       fullWidth: true,
@@ -44,20 +60,10 @@ class Chart extends Component {
       }
     };
 
-    var type = 'Bar';
-    var aspectRatio = 'ct-octave';
-
     return (
       <section>
         <h2> I need my Charts Jack! </h2>
-        
-        <ul>
-          {this.state.chartData.map(chartData => 
-            <p key={chartData.key}>{chartData.Letter} - <span>{chartData.Freq}</span></p>
-          )}
-        </ul>
-
-        <ChartistGraph className={aspectRatio} type={type} data={this.state.chartData} options={biPolarBarChartOptions} type={'Line'} />
+        <ChartistGraph className={aspectRatio} type={type} data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
       </section>
     )
   }
