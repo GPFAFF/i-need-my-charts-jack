@@ -48,7 +48,7 @@ class Chart extends Component {
         
         <ul>
           {this.state.chartData.map(chartData => 
-            <p key={chartData.Letter}><span>{chartData.Freq}</span></p>
+            <p>{chartData.Letter} - <span>{chartData.Freq}</span></p>
           )}
         </ul>
 
