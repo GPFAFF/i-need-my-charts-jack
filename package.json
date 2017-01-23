@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "\"charts, react, server request example\"",
   "scripts": {
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --history-api-fallback"
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --history-api-fallback",
+    "build": "webpack -p"
   },
   "author": "Greg Pfaff",
   "license": "ISC",
