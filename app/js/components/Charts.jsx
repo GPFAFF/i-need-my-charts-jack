@@ -16,8 +16,9 @@ class Chart extends Component {
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
       .then(res => {
-        const chartData = res.map(obj => obj.data);
-        console.log(chartData);
+        console.log('res', res)
+        const chartData = res.data.map(obj => obj);
+        console.log('chartData', chartData);
         this.setState({ chartData });
       });
   }
@@ -47,7 +48,7 @@ class Chart extends Component {
         
         <ul>
           {this.state.chartData.map(chartData => 
-            <li key={chartData.Letter}>{chartData.Freq}</li>
+            <p key={chartData.Letter}><span>{chartData.Freq}</span></p>
           )}
         </ul>
 
