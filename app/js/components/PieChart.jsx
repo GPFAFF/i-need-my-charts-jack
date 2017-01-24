@@ -9,14 +9,15 @@ class PieChart extends Component {
     super(props);
 
     this.state = {
-      seriesData: [],
-      labelData: [],
+      series: [],
+      label: [],
     };
   }
 
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
     .then((res) => {
+      console.log(res);
       const pieData = res.data.chartData;
       const seriesData = [];
       const labelData = [];
@@ -31,9 +32,12 @@ class PieChart extends Component {
         return seriesData && labelData;
       });
       this.setState({
-        seriesData: seriesData,
+        series: seriesData,
         labelData: labelData,
       });
+      console.log(seriesData);
+      console.log(labelData);
+
     })
     .catch((err) => {
       const output = document.querySelector('.ct-chart-pie');
@@ -45,8 +49,8 @@ class PieChart extends Component {
 
   render() {
     const pieData = {
-      seriesData: this.state.seriesData,
-      labelData: this.state.labelData,
+      series: this.state.series,
+      labels: this.state.labelData,
     };
     const options = {
       fullWidth: true,
