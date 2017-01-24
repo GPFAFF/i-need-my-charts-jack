@@ -53,12 +53,14 @@ class Line extends Component {
       fullWidth: true,
       showArea: true,
       showGrid: false,
-      high: 10,
-      low: 0,
-      onlyInteger: true,
+      high: 11,
+      low: 1,
       chartPadding: {
         right: 40,
       },
+      axisY: {
+        onlyInteger: true,
+      }
     };
 
     return (

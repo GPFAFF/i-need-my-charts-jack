@@ -47,16 +47,14 @@ class BarGraph extends Component {
       series: this.state.barSeriesData,
     };
     const options = {
-      high: 10,
-      low: 0,
+      high: 11,
+      low: 1,
       fullWidth: true,
       chartPadding: {
         right: 40,
       },
-      axisX: {
-        labelInterpolationFnc(value, index) {
-          return index % 1 === 0 ? value : null;
-        },
+      axisY: {
+        onlyInteger: true
       },
     };
     const type = 'Bar';

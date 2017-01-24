@@ -2,53 +2,38 @@
   "chartData": [
     {
       "key": 1,
-      "labels": "W1",
+      "labels": "Mon",
       "series": 7 
     },
     {
       "key": 2,
-      "labels" : "W2",
+      "labels" : "Tue",
       "series": 7
     },
     {
       "key": 3,
-      "labels" : "W3",
+      "labels" : "Wed",
       "series": 3
     },
     {
       "key": 4,
-      "labels" : "W4",
+      "labels" : "Thur",
       "series": 6
     },
     {
       "key": 5,
-      "labels" : "W5",
+      "labels" : "Fri",
       "series" : 9
     },
     {
       "key": 6,
-      "labels" : "W6",
+      "labels" : "Sat",
       "series" : 10
     },
     {
       "key": 7,
-      "labels" : "W7",
+      "labels" : "Sun",
       "series" : 4
     },
-    {
-      "key": 8,
-      "labels" : "W8",
-      "series" : 8
-    },
-    {
-      "key": 9,
-      "labels" : "W9",
-      "series" : 3
-    },
-    {
-      "key": 10,
-      "labels" : "W10",
-      "series" : 5
-    }
   ]
 }
