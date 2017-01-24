@@ -4,14 +4,38 @@ import ChartistGraph from 'react-chartist';
 
 
 class BarGraph extends Component {
-  render() {
+  constructor(props) {
+    super(props);
 
-    var data = {
-      labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10', 'W11', 'W12', 'W13'],
-      series: [
-        [1, 2, 4, 8, 6, 2, 1, 4, 6, 2, 14, 5]
-      ]
-    };
+    this.setState({
+      labelData: [],
+      seriesData: []
+    })
+  }
+
+  componentDidMount() {
+  axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
+    .then(res => {
+      let chartData = res.data.chartData,
+          labelData = [],
+          seriesData = [];
+      
+      chartData.map((element, key) => {
+        let labels = element.labels,
+            series = element.series;
+        
+        labelData.push(labels);
+        seriesData.push(series);
+      });
+
+      this.setState({
+        labelData: labelData,
+        seriesData: [seriesData]
+      })
+    });
+  }
+  
+  render() {
 
     var options = {
       high: 26,
