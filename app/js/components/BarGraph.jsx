@@ -9,51 +9,51 @@ class BarGraph extends Component {
     super(props);
 
     this.setState({
-      labelData: [],
-      seriesData: []
+      barLabelData: [],
+      barSeriesData: []
     })
   }
 
+
   componentDidMount() {
+    
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
       .then(res => {
-        let chartData = res.data.chartData,
-            labelData = [],
-            seriesData = [];
+         let chartData = res.data.chartData,
+            barLabelData = [],
+            barSeriesData = [];
         
         chartData.map((element, key) => {
           let labels = element.labels,
               series = element.series;
           
-          labelData.push(labels);
-          seriesData.push(series);
+          barLabelData.push(labels);
+          barSeriesData.push(series);
         });
-
+      
         this.setState({
-          labelData: labelData,
-          seriesData: [seriesData]
-        })
+          barLabelData: barLabelData,
+          barSeriesData: [barSeriesData]
+        }) 
+      
+        console.log('bld', barLabelData);
+        console.log('bsd', barSeriesData);
       });
   }
   
   render() {
 
-    let data = {
-      labels: this.state.labelData,
-      series: this.state.seriesData
-    }
+    let barData = {
+      labels: this.state.barLabelData,
+      series: this.state.barSeriesData
+    };
 
     let options = {
-      high: 26,
-      low: 1,
+      high: 10,
+      low: 0,
       fullWidth: true,
       chartPadding: {
         right: 40
-      },
-      axisY: {
-        labelInterpolationFnc: function(value, index) {
-          return index;
-        }
       },
       axisX: {
         labelInterpolationFnc: function(value, index) {
@@ -63,12 +63,12 @@ class BarGraph extends Component {
     };
 
     let type = 'Bar';
-    let aspectRatio = 'ct-octave';
+    let aspectRatio = 'ct-golden-section';
 
     return (
       <section>
       <h2> Got Bars? </h2>
-        <ChartistGraph className={aspectRatio} data={data} options={options} type={type} />
+        <ChartistGraph className={aspectRatio} data={barData} options={options} type={type} />
       </section>
     )
   }

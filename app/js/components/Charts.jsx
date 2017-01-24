@@ -21,7 +21,7 @@ class Chart extends Component {
             labelData = [],
             seriesData = [];
         
-        chartData.map((element, key) => {
+        chartData.forEach((element, key) => {
           let labels = element.labels,
               series = element.series;
           
@@ -44,18 +44,20 @@ class Chart extends Component {
           series: this.state.seriesData
         };
 
+    // new chart
+    /*updateChart: function (data) {
+        return new Chartist.Bar('.chart', data);
+    },*/
     const biPolarBarChartOptions = {
-      high: 26,
-      low: 0,
       fullWidth: true,
+      showArea: true,
+      showGrid: false,
+      high: 10,
+      low: 0,
+      onlyInteger: true,
       chartPadding: {
         right: 40
       },
-      axisX: {
-        labelInterpolationFnc: function(value, index) {
-          return index % 1 === 0 ? value : null;
-        }
-      }
     };
 
     return (

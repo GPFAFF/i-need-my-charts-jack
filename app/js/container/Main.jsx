@@ -10,6 +10,7 @@ class Main extends Component {
       <main>
         <Chart chartData="data" />
         <BarGraph chartData="barData" />
+        <PieChart />
       </main>
     )
   }

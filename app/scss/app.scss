@@ -20,6 +20,20 @@ p {
     stroke: red;
   }
 }
+.ct-chart-pie {
+  .ct-series-a {
+    fill: red;
+  }
+  .ct-series-b {
+    fill: #33FF36
+  }
+  .ct-series-c {
+    fill: purple;
+  }
+  .ct-series-d {
+    fill: #333CFF;
+  }
+}
 span.ct-end {
   width: 63px;
     height: 20px;

@@ -1,35 +1,48 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist'; 
+import axios from 'axios';
 
 class PieChart extends Component {
+  constructor(props) {
+    super(props);
+
+    this.setState({
+      series: [],
+    })
+  }
+
+  
   render() {
-  
-      var data = {
-        labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
-        series: [
-          [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
-        ]
-      };
-  
-      var options = {
-        high: 10,
-        low: -10,
-        axisX: {
-          labelInterpolationFnc: function(value, index) {
-            return index % 2 === 0 ? value : null;
-          }
-        }
-      };
-  
-      var type = 'Pie'
-  
-      return (
-        <section>
-          <h2> Pie Going Heres </h2>
-        </section>
-      )
+
+    let pieData = {
+      series: [20, 10, 30, 40]
+      /*labels: this.state.barLabelData,
+      series: this.state.barSeriesData*/
+    };
+
+    let options = {
+      fullWidth: true,
+      showLabel: true
+      /*let sum = (a, b) => {
+        return a + b;
+      }
+      labelInterpolationFnc(value) {
+        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+      }*/
     }
+    
+
+    let type = 'Pie';
+    let aspectRatio = 'ct-bar ct-golden-section';
+
+    return (
+      <section>
+      <h2> Got Pies? </h2>
+        <ChartistGraph className={aspectRatio} data={pieData} options={options} type={type} />
+      </section>
+    )
+  }
 
 }
 
