@@ -12,14 +12,35 @@ class PieChart extends Component {
     })
   }
 
+  componentDidMount() {
+    axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
+      .then(res => {
+        console.log('response ', res);
+
+        let pieData = res.data.chartData.series;
+        let series = [];
+        
+        pieData.map((element) => {
+          console.log('elem: ', element);
+
+          let elem = element;
+          console.log('series', series);
+          series.push(elem);
+          console.log('series', series);
+        });
+        this.setState({
+          series: series
+        });
+        console.log('series State', series);
+    });
+  }
   
   render() {
 
     let pieData = {
-      series: [20, 10, 30, 40]
-      /*labels: this.state.barLabelData,
-      series: this.state.barSeriesData*/
+      series: this.state.series
     };
+    console.log('pie data: ', pieData);
 
     let options = {
       fullWidth: true,

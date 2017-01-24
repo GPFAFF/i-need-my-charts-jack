@@ -44,9 +44,11 @@ class BarGraph extends Component {
   render() {
 
     let barData = {
-      /*labels: this.state.barLabelData,
-      series: this.state.barSeriesData*/
+      labels: this.state.barLabelData,
+      series: this.state.barSeriesData
     };
+
+    console.log('bar data', barData);
 
     let options = {
       high: 10,

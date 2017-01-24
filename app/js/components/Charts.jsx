@@ -43,6 +43,7 @@ class Chart extends Component {
           labels: this.state.labelData,
           series: this.state.seriesData
         };
+        console.log('Line Data: ', biPolarBarChartData);
 
     // new chart
     /*updateChart: function (data) {
