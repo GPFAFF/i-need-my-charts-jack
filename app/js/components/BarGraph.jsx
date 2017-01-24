@@ -50,18 +50,22 @@ class BarGraph extends Component {
       high: 11,
       low: 1,
       fullWidth: true,
+      seriesBarDistance: 10,
       chartPadding: {
-        right: 40,
+        right: 60,
+      },
+      axisX: {
+        showGrid: false
       },
       axisY: {
         onlyInteger: true
       },
     };
     const type = 'Bar';
-    const aspectRatio = 'ct-golden-section';
+    const aspectRatio = '.ct-minor-second';
 
     return (
-      <section className="graph">
+      <section>
         <h2> Got Bars? </h2>
         <ChartistGraph className={aspectRatio} data={barData} options={options} type={type} />
       </section>

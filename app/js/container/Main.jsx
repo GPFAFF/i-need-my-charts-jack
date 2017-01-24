@@ -12,7 +12,7 @@ class Main extends Component {
         <Line chartData='data' />
         <PieChart chartData='pie' />
         <BarGraph chartData='barData' />
-        <ExampleError className="error" chartData="error" />
+        <ExampleError chartData="error" />
       </main>
     );
   }
