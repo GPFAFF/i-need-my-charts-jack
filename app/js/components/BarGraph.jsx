@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
+import axios from 'axios';
 
 
 class BarGraph extends Component {
@@ -14,25 +15,25 @@ class BarGraph extends Component {
   }
 
   componentDidMount() {
-  axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
-    .then(res => {
-      let chartData = res.data.chartData,
-          labelData = [],
-          seriesData = [];
-      
-      chartData.map((element, key) => {
-        let labels = element.labels,
-            series = element.series;
+    axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
+      .then(res => {
+        let chartData = res.data.chartData,
+            labelData = [],
+            seriesData = [];
         
-        labelData.push(labels);
-        seriesData.push(series);
-      });
+        chartData.map((element, key) => {
+          let labels = element.labels,
+              series = element.series;
+          
+          labelData.push(labels);
+          seriesData.push(series);
+        });
 
-      this.setState({
-        labelData: labelData,
-        seriesData: [seriesData]
-      })
-    });
+        this.setState({
+          labelData: labelData,
+          seriesData: [seriesData]
+        })
+      });
   }
   
   render() {
