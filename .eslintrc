@@ -1,8 +1,12 @@
 {
   "extends": "airbnb",
+  "globals": {
+    "document": true,
+    "foo": true,
+    "window": true
+  },
   "rules": {
     "jsx-quotes": [2, "prefer-single"],
-    "react/jsx-curly-spacing": [1, "always"],
     "react/prefer-stateless-function": [0]
   },
     {

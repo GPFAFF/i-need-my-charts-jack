@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import ChartistGraph from 'react-chartist'; 
+import ChartistGraph from 'react-chartist';
 import axios from 'axios';
 
-class exampleError extends Component {
+const PropTypes = React.PropTypes;
+
+class ExampleError extends Component {
   constructor(props) {
     super(props);
 
@@ -14,19 +16,20 @@ class exampleError extends Component {
   componentDidMount() {
     // incorrect URL call
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
-    .then(res => {
+    .then((res) => {
       const errorData = res.data.chartData.series;
     })
-    .catch(err => {
+    .catch((err) => {
       const output = document.querySelector('.ct-perfect-fifth');
+      const message = `${err}<br></br>Please try again later`;
       output.className = 'container text-danger';
-      output.innerHTML = err.message + '<br></br>' + 'Please try again later';
+      output.innerHTML = message;
     });
   }
 
   render() {
     const error = {
-    /* series: this.state.series */
+      series: this.state.series,
     };
     const options = {
       fullWidth: true,
@@ -51,4 +54,8 @@ class exampleError extends Component {
 
 }
 
-export default exampleError;
+ExampleError.propTypes = {
+  chartData: PropTypes.string.isRequired,
+};
+
+export default ExampleError;

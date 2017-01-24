@@ -12,10 +12,11 @@ class Main extends Component {
         <Line chartData='data' />
         <PieChart chartData='pie' />
         <BarGraph chartData='barData' />
-        <ExampleError chartData="error" />
+        <ExampleError chartData='error' />
       </main>
     );
   }
+
 }
 
 export default Main;

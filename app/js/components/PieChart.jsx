@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ChartistGraph from 'react-chartist';
 import axios from 'axios';
 
+const PropTypes = React.PropTypes;
+
 class PieChart extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ class PieChart extends Component {
 
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
-    .then(res => {
+    .then((res) => {
       const pieData = res.data.chartData.series;
       const series = [];
 
@@ -23,13 +25,14 @@ class PieChart extends Component {
         return series;
       });
       this.setState({
-        series: series,
+        series,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       const output = document.querySelector('.ct-chart-pie');
+      const message = `${err}<br></br>Please try again later`;
       output.className = 'container text-danger';
-      output.innerHTML = err.message + '<br></br>' + 'Please try again later';
+      output.innerHTML = message;
     });
   }
 
@@ -53,5 +56,9 @@ class PieChart extends Component {
   }
 
 }
+
+PieChart.propTypes = {
+  chartData: PropTypes.string.isRequired,
+};
 
 export default PieChart;

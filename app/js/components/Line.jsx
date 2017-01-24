@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ChartistGraph from 'react-chartist';
 import axios from 'axios';
 
+const PropTypes = React.PropTypes;
+
 
 class Line extends Component {
   constructor(props) {
@@ -15,7 +17,7 @@ class Line extends Component {
 
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
-    .then(res => {
+    .then((res) => {
       const chartData = res.data.chartData;
       const labelData = [];
       const seriesData = [];
@@ -35,10 +37,11 @@ class Line extends Component {
         seriesData: [seriesData],
       });
     })
-    .catch(err => {
+    .catch((err) => {
       const output = document.querySelector('.ct-line');
+      const message = `${err}<br></br>Please try again later`;
       output.className = 'container text-danger';
-      output.innerHTML = err.message + '<br></br>' + 'Please try again later';
+      output.innerHTML = message;
     });
   }
 
@@ -60,16 +63,26 @@ class Line extends Component {
       },
       axisY: {
         onlyInteger: true,
-      }
+      },
     };
 
     return (
       <section>
         <h2> Got Lines? </h2>
-        <ChartistGraph className={aspectRatio} type={type} data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
+        <ChartistGraph
+          className={aspectRatio}
+          type={type}
+          data={biPolarBarChartData}
+          options={biPolarBarChartOptions}
+        />
       </section>
     );
   }
+
 }
+
+Line.propTypes = {
+  chartData: PropTypes.string.isRequired,
+};
 
 export default Line;

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ChartistGraph from 'react-chartist';
 import axios from 'axios';
 
+const PropTypes = React.PropTypes;
+
 class BarGraph extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,7 @@ class BarGraph extends Component {
 
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
-    .then(res => {
+    .then((res) => {
       const chartData = res.data.chartData;
       const barLabelData = [];
       const barSeriesData = [];
@@ -34,13 +36,14 @@ class BarGraph extends Component {
         barSeriesData: [barSeriesData],
       });
     })
-    .catch(err => {
+    .catch((err) => {
       const output = document.querySelector('.graph');
+      const message = `${err}<br></br>Please try again later`;
       output.className = 'container text-danger';
-      output.innerHTML = err.message + '<br></br>' + 'Please try again later';
+      output.innerHTML = message;
     });
   }
-  
+
   render() {
     const barData = {
       labels: this.state.barLabelData,
@@ -55,10 +58,10 @@ class BarGraph extends Component {
         right: 60,
       },
       axisX: {
-        showGrid: false
+        showGrid: false,
       },
       axisY: {
-        onlyInteger: true
+        onlyInteger: true,
       },
     };
     const type = 'Bar';
@@ -71,6 +74,11 @@ class BarGraph extends Component {
       </section>
     );
   }
+
 }
+
+BarGraph.propTypes = {
+  chartData: PropTypes.string.isRequired,
+};
 
 export default BarGraph;
