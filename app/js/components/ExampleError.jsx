@@ -18,7 +18,7 @@ class exampleError extends Component {
       const errorData = res.data.chartData.series;
     })
     .catch(err => {
-      const output = this.document.querySelector('.ct-chart');
+      const output = document.querySelector('.error');
       output.className = 'container text-danger';
       output.innerHTML = err.message + '<br></br>' + 'Please try again later';
     });
@@ -39,7 +39,7 @@ class exampleError extends Component {
       } */
     };
     const type = 'Pie';
-    const aspectRatio = 'ct-golden-section ct-chart-pie';
+    const aspectRatio = 'ct-golden-section ct-chart-pie error';
 
     return (
       <section>

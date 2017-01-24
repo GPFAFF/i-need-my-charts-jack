@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Line from '../components/Line';
 import PieChart from '../components/PieChart';
 import BarGraph from '../components/BarGraph';
-// import ExampleError from '../components/ExampleError';
+import ExampleError from '../components/ExampleError';
 
 class Main extends Component {
   render() {
@@ -12,6 +12,7 @@ class Main extends Component {
         <Line chartData='data' />
         <PieChart chartData='pie' />
         <BarGraph chartData='barData' />
+        <ExampleError className="error" chartData="error" />
       </main>
     );
   }
