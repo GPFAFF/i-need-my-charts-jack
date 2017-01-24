@@ -1,9 +1,9 @@
 {
- "chartData": [
+  "chartData": [
     {
       "key": 1,
       "labels": "Mon",
-      "series": 10,  
+      "series": 8  
     },
     {
       "key": 2,
@@ -31,9 +31,9 @@
       "series" : 4
     },
     {
-      "key": 7,
-      "labels": "Sun",
-      "series": 1
+      "key": 8,
+      "labels" : "Sun",
+      "series" : 6
     }
   ]
 }
