@@ -9,23 +9,30 @@ class PieChart extends Component {
     super(props);
 
     this.state = {
-      series: [],
+      seriesData: [],
+      labelData: [],
     };
   }
 
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
     .then((res) => {
-      const pieData = res.data.chartData.series;
-      const series = [];
+      const pieData = res.data.chartData;
+      const seriesData = [];
+      const labelData = [];
 
       pieData.map((element) => {
-        const elem = element;
-        series.push(elem);
-        return series;
+        console.log(element);
+        const labels = element.labels;
+        const series = element.series;
+
+        seriesData.push(series);
+        labelData.push(labels);
+        return seriesData && labelData;
       });
       this.setState({
-        series,
+        seriesData: seriesData,
+        labelData: labelData,
       });
     })
     .catch((err) => {
@@ -38,7 +45,8 @@ class PieChart extends Component {
 
   render() {
     const pieData = {
-      series: this.state.series,
+      seriesData: this.state.seriesData,
+      labelData: this.state.labelData,
     };
     const options = {
       fullWidth: true,

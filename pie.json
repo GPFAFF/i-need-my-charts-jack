@@ -1,5 +1,39 @@
 {
-  "chartData": {
-    "series": [10, 2, 4, 3]
-  }
+ "chartData": [
+    {
+      "key": 1,
+      "labels": "Mon",
+      "series": 10,  
+    },
+    {
+      "key": 2,
+      "labels" : "Tue",
+      "series": 3
+    },
+    {
+      "key": 3,
+      "labels" : "Wed",
+      "series": 4
+    },
+    {
+      "key": 4,
+      "labels" : "TR",
+      "series": 2
+    },
+    {
+      "key": 5,
+      "labels" : "Fri",
+      "series" : 5
+    },
+    {
+      "key": 6,
+      "labels" : "Sat",
+      "series" : 4
+    },
+    {
+      "key": 7,
+      "labels": "Sun",
+      "series": 1
+    }
+  ]
 }
