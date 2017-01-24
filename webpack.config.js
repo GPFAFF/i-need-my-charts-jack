@@ -9,7 +9,7 @@ module.exports = {
   },
 
   output: {
-    filename: 'app.js',
+    filename: 'js/app.js',
     path: __dirname + '/dist',
   },
 
