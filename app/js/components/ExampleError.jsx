@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist'; 
 import axios from 'axios';
 
-class PieChart extends Component {
+class exampleError extends Component {
   constructor(props) {
     super(props);
 
@@ -13,27 +13,23 @@ class PieChart extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
+    // incorrect URL call
+    axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartDta}.json`)
       .then(res => {
-        console.log('response ', res);
 
-        let pieData = res.data.chartData.series;
+        /*let pieData = res.data.chartData.series;
         let series = [];
         
         pieData.map((element) => {
-          console.log('elem: ', element);
-
           let elem = element;
-          console.log('series', series);
           series.push(elem);
-          console.log('series', series);
         });
         this.setState({
           series: series
-        });
+        });*/
     })
     .catch(err => {
-      let output = document.querySelector('.ct-chart-pie')
+      let output = this.document.querySelector('.ct-chart')
       output.className = 'container text-danger';
       output.innerHTML = err.message  + '<br> </br>' + 'Please try again later';
     });
@@ -41,10 +37,9 @@ class PieChart extends Component {
   
   render() {
 
-    let pieData = {
-      series: this.state.series
+    let error = {
+      /*series: this.state.series*/
     };
-    console.log('pie data: ', pieData);
 
     let options = {
       fullWidth: true,
@@ -59,16 +54,16 @@ class PieChart extends Component {
     
 
     let type = 'Pie';
-    let aspectRatio = 'ct-bar ct-golden-section ct-chart-pie';
+    let aspectRatio = 'ct-golden-section ct-chart-pie';
 
     return (
       <section>
-      <h2> Got Pies? </h2>
-        <ChartistGraph className={aspectRatio} data={pieData} options={options} type={type} />
+        <h2> Got ERRS? </h2>
+        <ChartistGraph className={aspectRatio} data={error} options={options} type={type} />
       </section>
     )
   }
 
 }
 
-export default PieChart;
+export default exampleError;

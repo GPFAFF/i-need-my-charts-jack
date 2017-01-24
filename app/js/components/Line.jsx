@@ -4,7 +4,7 @@ import ChartistGraph from 'react-chartist';
 import axios from 'axios';
 
 
-class Chart extends Component {
+class Line extends Component {
   constructor(props) {
     super(props);
 
@@ -33,12 +33,17 @@ class Chart extends Component {
           labelData: labelData,
           seriesData: [seriesData]
         })
+      })
+      .catch(err => {
+        let output = document.querySelector('.ct-line')
+        output.className = 'container text-danger';
+        output.innerHTML = err.message  + '<br> </br>' + 'Please try again later';
       });
   }
 
   render() {
-    let type = 'Bar',
-        aspectRatio = 'ct-octave',
+    let type = 'Line',
+        aspectRatio = 'ct-line ct-octave',
         biPolarBarChartData = {
           labels: this.state.labelData,
           series: this.state.seriesData
@@ -63,11 +68,11 @@ class Chart extends Component {
 
     return (
       <section>
-        <h2> I need my Charts Jack! </h2>
+        <h2> Got Lines? </h2>
         <ChartistGraph className={aspectRatio} type={type} data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
       </section>
     )
   }
 }
 
-export default Chart;
+export default Line;
