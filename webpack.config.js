@@ -1,18 +1,16 @@
 const path = require('path');
-const precss = require('precss');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  context: __dirname + "/app",
+  context: __dirname + '/app',
 
   entry: {
-    javascript: "./js/app.js",
-    html: "./index.html",
+    javascript: './js/app.jsx',
+    html: './index.html',
   },
 
   output: {
-    filename: "app.js",
-    path: __dirname + "/dist",
+    filename: 'app.js',
+    path: __dirname + '/dist',
   },
 
   resolve: {
@@ -25,11 +23,11 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader"],
+        loaders: ['react-hot', 'babel-loader'],
       },
       {
         test: /\.html$/,
-        loader: "file?name=[name].[ext]",
+        loader: 'file?name=[name].[ext]',
       },
       {
         test: /\.scss$/,

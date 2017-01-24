@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
 import axios from 'axios';
 
@@ -10,50 +9,46 @@ class Line extends Component {
 
     this.state = {
       labelData: [],
-      seriesData: []
-    }
+      seriesData: [],
+    };
   }
 
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
-      .then(res => {
-        let chartData = res.data.chartData,
-            labelData = [],
-            seriesData = [];
-        
-        chartData.forEach((element, key) => {
-          let labels = element.labels,
-              series = element.series;
-          
-          labelData.push(labels);
-          seriesData.push(series);
-        });
+    .then(res => {
+      const chartData = res.data.chartData;
+      const labelData = [];
+      const seriesData = [];
 
-        this.setState({
-          labelData: labelData,
-          seriesData: [seriesData]
-        })
-      })
-      .catch(err => {
-        let output = document.querySelector('.ct-line')
-        output.className = 'container text-danger';
-        output.innerHTML = err.message  + '<br> </br>' + 'Please try again later';
+      chartData.map((element) => {
+        const labels = element.labels;
+        const series = element.series;
+
+        labelData.push(labels);
+        seriesData.push(series);
+
+        return labelData && seriesData;
       });
+
+      this.setState({
+        labelData: labelData,
+        seriesData: [seriesData],
+      });
+    })
+    .catch(err => {
+      const output = document.querySelector('.ct-line');
+      output.className = 'container text-danger';
+      output.innerHTML = err.message + '<br></br>' + 'Please try again later';
+    });
   }
 
   render() {
-    let type = 'Line',
-        aspectRatio = 'ct-line ct-octave',
-        biPolarBarChartData = {
-          labels: this.state.labelData,
-          series: this.state.seriesData
-        };
-        //console.log('Line Data: ', biPolarBarChartData);
-
-    // new chart
-    /*updateChart: function (data) {
-        return new Chartist.Bar('.chart', data);
-    },*/
+    const type = 'Line';
+    const aspectRatio = 'ct-line ct-octave';
+    const biPolarBarChartData = {
+      labels: this.state.labelData,
+      series: this.state.seriesData,
+    };
     const biPolarBarChartOptions = {
       fullWidth: true,
       showArea: true,
@@ -62,7 +57,7 @@ class Line extends Component {
       low: 0,
       onlyInteger: true,
       chartPadding: {
-        right: 40
+        right: 40,
       },
     };
 
@@ -71,7 +66,7 @@ class Line extends Component {
         <h2> Got Lines? </h2>
         <ChartistGraph className={aspectRatio} type={type} data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
       </section>
-    )
+    );
   }
 }
 

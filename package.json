@@ -4,7 +4,9 @@
   "description": "\"charts, react, server request example\"",
   "scripts": {
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --history-api-fallback",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "lint": "./node_modules/eslint/bin/eslint.js ./js/ ./app/js -f table --ext .js --ext .jsx || true"
+
   },
   "author": "Greg Pfaff",
   "license": "ISC",

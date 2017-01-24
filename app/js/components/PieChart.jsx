@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import ChartistGraph from 'react-chartist'; 
+import React, { Component } from 'react';
+import ChartistGraph from 'react-chartist';
 import axios from 'axios';
 
 class PieChart extends Component {
@@ -8,65 +7,49 @@ class PieChart extends Component {
     super(props);
 
     this.state = {
-      series: []
-    }
+      series: [],
+    };
   }
 
   componentDidMount() {
     axios.get(`https://gpfaff.github.io/i-need-my-charts-jack/${this.props.chartData}.json`)
-      .then(res => {
-        console.log('response ', res);
+    .then(res => {
+      const pieData = res.data.chartData.series;
+      const series = [];
 
-        let pieData = res.data.chartData.series;
-        let series = [];
-        
-        pieData.map((element) => {
-          console.log('elem: ', element);
-
-          let elem = element;
-          console.log('series', series);
-          series.push(elem);
-          console.log('series', series);
-        });
-        this.setState({
-          series: series
-        });
+      pieData.map((element) => {
+        const elem = element;
+        series.push(elem);
+        return series;
+      });
+      this.setState({
+        series: series,
+      });
     })
     .catch(err => {
-      let output = document.querySelector('.ct-chart-pie')
+      const output = document.querySelector('.ct-chart-pie');
       output.className = 'container text-danger';
-      output.innerHTML = err.message  + '<br> </br>' + 'Please try again later';
+      output.innerHTML = err.message + '<br></br>' + 'Please try again later';
     });
   }
-  
+
   render() {
-
-    let pieData = {
-      series: this.state.series
+    const pieData = {
+      series: this.state.series,
     };
-    console.log('pie data: ', pieData);
-
-    let options = {
+    const options = {
       fullWidth: true,
-      showLabel: true
-      /*let sum = (a, b) => {
-        return a + b;
-      }
-      labelInterpolationFnc(value) {
-        return Math.round(value / data.series.reduce(sum) * 100) + '%';
-      }*/
-    }
-    
-
-    let type = 'Pie';
-    let aspectRatio = 'ct-bar ct-golden-section ct-chart-pie';
+      showLabel: true,
+    };
+    const type = 'Pie';
+    const aspectRatio = 'ct-bar ct-golden-section ct-chart-pie';
 
     return (
       <section>
-      <h2> Got Pies? </h2>
+        <h2> Got Pies? </h2>
         <ChartistGraph className={aspectRatio} data={pieData} options={options} type={type} />
       </section>
-    )
+    );
   }
 
 }
