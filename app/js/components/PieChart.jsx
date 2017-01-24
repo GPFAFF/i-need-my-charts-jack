@@ -7,9 +7,9 @@ class PieChart extends Component {
   constructor(props) {
     super(props);
 
-    this.setState({
-      series: [],
-    })
+    this.state = {
+      series: []
+    }
   }
 
   componentDidMount() {
