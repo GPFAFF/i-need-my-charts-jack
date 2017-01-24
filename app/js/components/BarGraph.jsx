@@ -37,7 +37,12 @@ class BarGraph extends Component {
   
   render() {
 
-    var options = {
+    let data = {
+      labels: this.state.labelData,
+      series: this.state.seriesData
+    }
+
+    let options = {
       high: 26,
       low: 1,
       fullWidth: true,
@@ -56,8 +61,8 @@ class BarGraph extends Component {
       }
     };
 
-    var type = 'Bar';
-    var aspectRatio = 'ct-octave';
+    let type = 'Bar';
+    let aspectRatio = 'ct-octave';
 
     return (
       <section>
