@@ -21,7 +21,7 @@ class Chart extends Component {
             labelData = [],
             seriesData = [];
         
-        chartData.forEach((element, key, array) => {
+        chartData.map((element, key) => {
           let labels = element.labels,
               series = element.series;
           
@@ -31,7 +31,7 @@ class Chart extends Component {
 
         this.setState({
           labelData: labelData,
-          seriesData: seriesData
+          seriesData: [seriesData]
         })
       });
   }
@@ -40,11 +40,9 @@ class Chart extends Component {
     let type = 'Bar',
         aspectRatio = 'ct-octave',
         biPolarBarChartData = {
-          labels: [this.state.labelData],
-          series: [this.state.seriesData]
+          labels: this.state.labelData,
+          series: this.state.seriesData
         };
-
-    console.log(biPolarBarChartData);
 
     const biPolarBarChartOptions = {
       high: 26,
