@@ -65,7 +65,7 @@ class BarGraph extends Component {
       },
     };
     const type = 'Bar';
-    const aspectRatio = '.ct-minor-second';
+    const aspectRatio = 'container .ct-minor-second graph';
 
     return (
       <section>

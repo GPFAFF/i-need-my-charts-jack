@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname + '/app',
 
   entry: {
-    javascript: './js/app.jsx',
+    javascript: './js/app.js',
     html: './index.html',
   },
 
@@ -15,7 +15,7 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
-    root: path.resolve(__dirname, './app/js'),
+    root: path.resolve(__dirname, './app/jsx'),
   },
 
   module: {

@@ -9,10 +9,10 @@ class Main extends Component {
     return (
       <main>
         <h1> I need my charts JACK! </h1>
-        <Line chartData='data' />
-        <PieChart chartData='pie' />
-        <BarGraph chartData='barData' />
-        <ExampleError chartData='error' />
+        <Line className='element' chartData='data' />
+        <PieChart className='element' chartData='pie' />
+        <BarGraph className='element' chartData='barData' />
+        <ExampleError className='element' chartData='error' />
       </main>
     );
   }

@@ -42,7 +42,7 @@ class PieChart extends Component {
     .catch((err) => {
       const output = document.querySelector('.ct-chart-pie');
       const message = `${err}<br></br>Please try again later`;
-      output.className = 'container text-danger';
+      output.className = 'text-danger';
       output.innerHTML = message;
     });
   }

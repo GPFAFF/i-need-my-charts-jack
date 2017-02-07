@@ -1,0 +1,21 @@
+@import 'mixins/grids';
+
+body {
+  background: #ccc;
+  height: 100%;
+  width: 100%;
+  margin: 20px auto;
+  font-family: 'Lato', sans-serif;
+}
+section {
+  padding-bottom: 50px;
+}
+h1, h2 {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  @include layout($spacing);
+}
+p {
+  display: inline;
+  padding: 5px;
+}
